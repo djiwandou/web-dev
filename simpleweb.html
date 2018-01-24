@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design Studios</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+    /* Some custom styles to beautify this web page */
+    .demo-content{/*grid*/
+        padding: 15px;
+        font-size: 18px;
+        min-height: 300px;
+        background: #0099ff;
+        margin-bottom: 10px;
+    }    
+    button.style1 {/*button under grid*/
+	  position: relative;
+	  padding: 10px 30px;
+	  border-radius: 1px;
+	  font-size: 12px;
+	  font-weight: lighter;	  
+	  letter-spacing: 1px;
+	  color: white;	  
+	  text-transform: uppercase;
+	  overflow: hidden;
+	  background-color: #005c99;
+	}
+	button.style1:before {
+	  position: absolute;
+	  content: '';
+	  top: 0;
+	  left: 0;
+	  width: 0;
+	  height: 100%;
+	  background-color: rgba(255, 255, 255, 0.2);	  
+	  transition: width 250ms ease;
+	  z-index: 0;
+	}
+	button.style1:hover:before {
+	  width: 100%;
+	}
+    .nav.navbar-nav.navbar-right li a{/*navigation bar*/
+    	color: #ffffff;
+    	font: 12px Montserrat, sans-serif;
+    	margin-top: 30px;
+    	margin-right: 15px;
+	}
+    .navbar-inverse .navbar-brand{
+      color: #ffffff;  
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-top: 10px;
+      margin-bottom: 25px;      
+      margin-left: 15px !important;      
+      font: 35px Montserrat, sans-serif;          
+  	}  	
+  	.navbar-nav li a:hover, .navbar-nav > .active > a {
+	  color: #0099ff !important;	  	  
+	}
+	.jumbotron{
+		min-height: 250px;		
+		background-color: #ffffff;
+		margin-left: 15px;
+	}
+	hr.style2 {/*for inside the grid*/
+		border-width: 2px;
+		border-color: #ffffff;
+	}
+	hr.style3 {
+		border-top: 1px dashed #8c8b8b;
+		border-color: #33cccc;
+	}
+	h2.style4{
+		font-weight: 600;
+		font-family: Montserrat, sans-serif;          
+		font-size: 40px;
+	}
+	hurufbiru{
+		color: #0099ff;
+	}	
+	h3.style5{
+		color: #33cccc;
+		font-family: Montserrat, sans-serif;
+		font-weight: lighter;
+		font-size: 30px;
+	}
+	h4.style6{/*for inside the grid*/
+		color: #ffffff;
+		font-family: Montserrat, sans-serif;
+		font-weight: 200px;
+		font-size: 20px;
+		text-align: center;
+	}
+	h4.style7{/*for inside the modal box*/
+		color: #000000;
+		font-family: Montserrat, sans-serif;
+		font-weight: 200px;
+		font-size: 20px;
+	}
+	p.style8{/*for inside the grid*/
+		color: #ffffff;
+		font-family: Montserrat, sans-serif;
+		font-weight: lighter;
+		font-size: 12px;
+		text-align: center;
+	}
+	p.style9{/*for inside the modal box*/
+		color: #000000;
+		font-family: Montserrat, sans-serif;
+		font-weight: lighter;
+		font-size: 12px;
+		word-spacing: 2px;
+	}
+	
+	/*Modal Box*/
+	/*https://www.w3schools.com/howto/howto_css_modals.asp*/
+	.modal {
+	    display: none; /* Hidden by default */
+	    position: fixed; /* Stay in place */
+	    z-index: 1; /* Sit on top */
+	    padding-top: 100px; /* Location of the box */
+	    left: 0;
+	    top: 0;
+	    width: 100%; /* Full width */
+	    height: 100%; /* Full height */
+	    overflow: auto; /* Enable scroll if needed */
+	    background-color: rgb(0,0,0); /* Fallback color */
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	}
+
+	/* Modal Content */
+	.modal-content {
+	    background-color: #fefefe;
+	    margin: auto;
+	    padding: 20px;
+	    border: 1px solid #888;
+	    width: 80%;
+	}
+
+	/* The Close Button */
+	.close {
+	    color: #aaaaaa;
+	    float: right;
+	    font-size: 28px;
+	    font-weight: bold;
+	}
+
+	.close:hover,
+	.close:focus {	    
+	    cursor: pointer;
+	    color: #3498db;	  	
+	}
+
+	.modal-content footer .button {
+	  position: relative;	  
+	  font-size: 12px;
+	  font-weight: 400;
+	  color: black;	  
+	  overflow: hidden;
+	}
+	.modal-content footer .button:before {
+	  position: absolute;
+	  content: '';
+	  top: 0;
+	  left: 0;
+	  width: 0;
+	  height: 100%;
+	  background-color: rgba(255, 255, 255, 0.2);
+	  transition: width 250ms ease;
+	  z-index: 0;
+	}
+	.modal-content footer .button:hover:before {
+	  width: 100%;	  
+	}
+	.modal-content footer .button.success {
+	  margin-right: 5px;	  
+	  cursor: pointer;	  
+	  background-color: transparent;
+	}
+
+</style>
+
+</head> 
+<body>
+<div class="container">
+	<nav class="navbar navbar-inverse navbar-static-top">    
+	    <div class="container-fluid">                
+	        <div class="navbar-header">	      
+	            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	            <a class="navbar-brand" href="#">Design Studios</a>
+	        </div>
+
+	        <div id="navbarCollapse" class="collapse navbar-collapse">            
+	            <ul class="nav navbar-nav navbar-right">
+	                <li class="active"><a href="#">Home ...</a></li>
+	                <li><a href="#">About Us ...</a></li>
+	                <li><a href="#">Services ...</a></li>
+	                <li><a href="#">Portofolio ...</a></li>
+	                <li><a href="#">Contact Us</a></li>
+	            </ul>
+	        </div>    	
+		</div>
+	</nav>
+</div>
+
+<div class="container">
+    <div class="jumbotron">
+        <h2 class="style4">Clean <hurufbiru>&</hurufbiru> Professional Web Design</h2>
+        <h3 class="style5">Providing High Quality Web Solutions</h3>        
+        <br>
+        <hr class="style3">
+        <br>
+        <div class="container">
+        	<p>We Provide <b>first class</b> web solutions for organizations and small businesses looking to make a <b>big impact</b> online. Our services include web design, online marketing campaigns, and search engine optimization.</p>
+        </div>
+        <hr class="style3">
+    </div>
+</div>
+
+<div class="container">
+		<div class="jumbotron">
+	        <!--Row with three equal columns-->
+	        <div class="row">
+	            <div class="col-xs-4">
+	                <div class="demo-content">
+	                	<h4 class="style6">web design</h4>
+	                	<hr class="style2">
+	                	<p class="style8">We provide web design solutions of the very highest order. We'll work with you from the start to understand your exact requirements and will continuosly work with you to ensure that you're happy with the final site that you purchase</p4>
+	                	<br>
+	                	<br>
+	                	<br>
+	                	<!-- Trigger/Open The Modal -->
+						<button class="style1" id="myBtn">Get More Details>></button>
+
+						<!-- The Modal -->
+						<div id="myModal" class="modal">
+
+						  <!-- Modal content -->
+						  <div class="modal-content">
+						    <span class="close">&times;</span>
+						    <h4 class="style7">Web Design</h4>
+						    <br>
+						    <p class="style9">Web design is the process of creating websites. It encompasses several different aspects, including webpage layout, content production, and graphic design. While the terms web design and web development are often used interchangeably, web design is technically a subset of the broader category of web development.</p>
+						    <footer>		
+								<label for="modal" class="button success">Close</label>
+							</footer>
+						  </div>
+						</div>
+	                </div>
+	            </div>
+	            <div class="col-xs-4">
+	            	<div class="demo-content">
+	            		<h4 class="style6">marketing</h4>
+	                	<hr class="style2">
+	                	<p class="style8">We can help you promote your business in both the online and offline worlds. We specialize in a range of fields from viral marketing campaign to managing paid advertising accounts for you. Your brand will be in safe hands with us</p4>
+	                	<br>
+	                	<br>
+	                	<br>
+	                	<!-- Trigger/Open The Modal -->
+						<button class="style1" id="myBtn2">View Case Studies>></button>
+	            	</div>
+	            </div>
+	            <div class="col-xs-4">
+	            	<div class="demo-content">
+	            		<h4 class="style6">optimization</h4>
+	                	<hr class="style2">
+	                	<p class="style8">Want to drive more traffic to your site? You've come the right place! We can increase traffic to your site in an organic and effectve manner that will ensure more people are aware of your business and the products/services you offer.</p4>
+	                	<br>
+	                	<br>
+	                	<br>
+	                	<!-- Trigger/Open The Modal -->
+						<button class="style1" id="myBtn3">Learn More>></button>
+	            	</div>
+	            </div>
+	        </div>
+	        <hr>
+        </div>
+</div>
+
+<script>
+	// Get the modal
+	var modal = document.getElementById('myModal');
+
+	// Get the button that opens the modal
+	var btn = document.getElementById("myBtn");
+
+	// Get the <span> element that closes the modal
+	var span = document.getElementsByClassName("close")[0];
+
+	var btnClose = document.getElementsByClassName("button success")[0];
+
+	// When the user clicks the button, open the modal 
+	btn.onclick = function() {
+	    modal.style.display = "block";
+	}
+
+	// When the user clicks on <span> (x), close the modal
+	span.onclick = function() {
+	    modal.style.display = "none";
+	}
+
+	btnClose.onclick = function() {
+	    modal.style.display = "none";
+	}
+</script>
+</body>
+</html>                            
